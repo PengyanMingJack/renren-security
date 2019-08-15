@@ -22,7 +22,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, ArticleEntity> i
                 new Query<ArticleEntity>().getPage(params),
                 new QueryWrapper<ArticleEntity>()
         );
-        return new PageUtils(null);
+        return new PageUtils(page);
     }
 
 }

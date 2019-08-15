@@ -24,7 +24,7 @@ import java.util.Map;
  * @date 2019-08-11 18:06:56
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/article")
 public class ArticleController {
     @Autowired
     private ArticleService articleService;
@@ -42,11 +42,10 @@ public class ArticleController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @RequestMapping("info/{id}")
     public R info(@PathVariable("id") Integer id) {
         ArticleEntity article = articleService.getById(id);
-
-        return R.ok().put("article", article);
+        return R.ok().put("data", article);
     }
 
     /**
