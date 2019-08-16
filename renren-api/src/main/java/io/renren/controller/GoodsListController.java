@@ -52,11 +52,11 @@ public class GoodsListController {
      * 点赞
      */
     @RequestMapping("/praise")
-    public R praise(@RequestParam Long id) {
+    public R praise(@RequestParam Long id, Long userId) {
         GoodsListEntity goodsList = goodsListService.getById(id);
         goodsList.setLikeNum(goodsList.getLikeNum() + 1);
         goodsListService.updateById(goodsList);
-        return R.ok();
+        return R.ok().put("data", goodsList);
     }
 
     /**
@@ -67,6 +67,6 @@ public class GoodsListController {
         GoodsListEntity goodsList = goodsListService.getById(id);
         goodsList.setReadNum(goodsList.getReadNum() + 1);
         goodsListService.updateById(goodsList);
-        return R.ok();
+        return R.ok().put("data", goodsList);
     }
 }
