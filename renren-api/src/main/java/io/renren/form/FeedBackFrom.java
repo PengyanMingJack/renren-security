@@ -1,18 +1,18 @@
 package io.renren.form;
 
-import io.renren.entity.FeedBackEntity;
 import io.swagger.annotations.ApiModelProperty;
-import org.hibernate.validator.constraints.Length;
+import lombok.Data;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-public class FeedBackFrom extends FeedBackEntity {
+@Data
+public class FeedBackFrom  {
     @ApiModelProperty(value = "用户")
-    @NotBlank(message="用户不能为空")
-    private String userId;
+    @NotNull(message="用户不能为空")
+    private Integer userId;
 
     @ApiModelProperty(value = "反馈内容")
     @NotBlank(message="反馈内容")
-    private String password;
+    private String content;
 }
