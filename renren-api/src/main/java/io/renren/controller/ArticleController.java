@@ -5,7 +5,9 @@ import io.renren.common.utils.R;
 import io.renren.common.validator.ValidatorUtils;
 import io.renren.entity.ArticleEntity;
 import io.renren.entity.UserEntity;
+import io.renren.form.ArticleFrom;
 import io.renren.service.ArticleService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +19,7 @@ import java.util.Map;
 
 
 /**
- * 文章管理
+ * 文章
  *
  * @author Mark
  * @email sunlightcs@gmail.com
@@ -25,6 +27,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/article")
+@Api(tags="文章")
 public class ArticleController {
     @Autowired
     private ArticleService articleService;
@@ -49,28 +52,21 @@ public class ArticleController {
     }
 
     /**
-     * 保存
+     * 发布
      */
-    @RequestMapping("save")
-    @ApiOperation("保存")
-    public R save(@RequestBody ArticleEntity article) {
+    @PostMapping("save")
+    @ApiOperation("发布")
+    public R save(@RequestBody ArticleFrom from) {
+        ArticleEntity article = new ArticleEntity();
+        article.setUserId(from.getUserId());
+        article.setContent(from.getContent());
+        article.setLnglat(from.getLnglat());
+        article.setImage(from.getImage());
         article.setCreateTime(new Date());
         articleService.save(article);
-
         return R.ok();
     }
 
-    /**
-     * 修改
-     */
-    @RequestMapping("update")
-    @ApiOperation("修改")
-    public R update(@RequestBody ArticleEntity article) {
-        ValidatorUtils.validateEntity(article);
-        articleService.updateById(article);
-
-        return R.ok();
-    }
 
     /**
      * 删除

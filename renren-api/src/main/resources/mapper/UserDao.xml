@@ -4,4 +4,5 @@
 <mapper namespace="io.renren.dao.UserDao">
 
 
+
 </mapper>

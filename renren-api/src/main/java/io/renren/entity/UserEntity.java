@@ -43,6 +43,23 @@ public class UserEntity implements Serializable {
 	 */
 	private String mobile;
 	/**
+	 * 头像
+	 */
+	private String avatarUrl;
+	/**
+	 * 个性签名
+	 */
+	private String signature;
+	/**
+	 * 生日
+	 */
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+	private Date birthday;
+	/**
+	 * 0女 1男
+	 */
+	private Integer sex;
+	/**
 	 * 密码
 	 */
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
