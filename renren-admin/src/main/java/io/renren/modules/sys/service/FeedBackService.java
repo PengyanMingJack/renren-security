@@ -3,6 +3,7 @@ package io.renren.modules.sys.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import io.renren.common.utils.PageUtils;
 import io.renren.modules.sys.entity.FeedBackEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
