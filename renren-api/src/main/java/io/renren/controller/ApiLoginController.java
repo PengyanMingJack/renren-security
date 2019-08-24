@@ -1,8 +1,8 @@
 /**
  * Copyright (c) 2016-2019 人人开源 All rights reserved.
- *
+ * <p>
  * https://www.renren.io
- *
+ * <p>
  * 版权所有，侵权必究！
  */
 
@@ -12,6 +12,7 @@ package io.renren.controller;
 import io.renren.annotation.Login;
 import io.renren.common.utils.R;
 import io.renren.common.validator.ValidatorUtils;
+import io.renren.entity.UserEntity;
 import io.renren.form.LoginForm;
 import io.renren.service.TokenService;
 import io.renren.service.UserService;
@@ -30,7 +31,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/api")
-@Api(tags="登录接口")
+@Api(tags = "登录接口")
 public class ApiLoginController {
     @Autowired
     private UserService userService;
@@ -40,7 +41,7 @@ public class ApiLoginController {
 
     @PostMapping("login")
     @ApiOperation("登录")
-    public R login(@RequestBody LoginForm form){
+    public R login(@RequestBody LoginForm form) {
         //表单校验
         ValidatorUtils.validateEntity(form);
 
@@ -51,9 +52,17 @@ public class ApiLoginController {
     }
 
     @Login
+    @GetMapping("userInfo")
+    @ApiOperation(value = "获取用户信息", response = UserEntity.class)
+    public R userInfo(@ApiIgnore String userId) {
+        UserEntity userEntity = userService.queryByUserId(userId);
+        return R.ok().put("user", userEntity);
+    }
+
+    @Login
     @PostMapping("logout")
     @ApiOperation("退出")
-    public R logout(@ApiIgnore @RequestAttribute("userId") long userId){
+    public R logout(@ApiIgnore @RequestAttribute("userId") long userId) {
         tokenService.expireToken(userId);
         return R.ok();
     }

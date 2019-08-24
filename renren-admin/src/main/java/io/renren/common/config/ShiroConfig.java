@@ -72,22 +72,21 @@ public class ShiroConfig {
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
         shiroFilter.setSecurityManager(securityManager);
-        shiroFilter.setLoginUrl("/login.html");
-        shiroFilter.setUnauthorizedUrl("/");
+//        shiroFilter.setLoginUrl("/login.html");
+//        shiroFilter.setUnauthorizedUrl("/");
 
         Map<String, String> filterMap = new LinkedHashMap<>();
-        filterMap.put("/swagger/**", "anon");
-        filterMap.put("/v2/api-docs", "anon");
-        filterMap.put("/swagger-ui.html", "anon");
-        filterMap.put("/webjars/**", "anon");
-        filterMap.put("/swagger-resources/**", "anon");
-
-        filterMap.put("/statics/**", "anon");
-        filterMap.put("/login.html", "anon");
-        filterMap.put("/sys/login", "anon");
-        filterMap.put("/favicon.ico", "anon");
-        filterMap.put("/captcha.jpg", "anon");
-        filterMap.put("/**", "authc");
+//        filterMap.put("/swagger/**", "anon");
+//        filterMap.put("/v2/api-docs", "anon");
+//        filterMap.put("/swagger-ui.html", "anon");
+//        filterMap.put("/webjars/**", "anon");
+//        filterMap.put("/swagger-resources/**", "anon");
+//        filterMap.put("/statics/**", "anon");
+//        filterMap.put("/login.html", "anon");
+//        filterMap.put("/sys/login", "anon");
+//        filterMap.put("/favicon.ico", "anon");
+//        filterMap.put("/captcha.jpg", "anon");
+//        filterMap.put("/**", "authc");
         shiroFilter.setFilterChainDefinitionMap(filterMap);
 
         return shiroFilter;

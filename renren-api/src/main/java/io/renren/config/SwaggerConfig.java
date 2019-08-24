@@ -38,8 +38,8 @@ public class SwaggerConfig {
             //包下的类，才生成接口文档
             //.apis(RequestHandlerSelectors.basePackage("io.renren.controller"))
             .paths(PathSelectors.any())
-            .build()
-            .securitySchemes(security());
+            .build();
+//            .securitySchemes(security());
     }
 
     private ApiInfo apiInfo() {

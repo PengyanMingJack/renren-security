@@ -29,13 +29,13 @@ import springfox.documentation.annotations.ApiIgnore;
 @RequestMapping("/api")
 @Api(tags = "测试接口")
 public class ApiTestController {
-
-    @Login
-    @GetMapping("userInfo")
-    @ApiOperation(value = "获取用户信息", response = UserEntity.class)
-    public R userInfo(@ApiIgnore @LoginUser UserEntity user) {
-        return R.ok().put("user", user);
-    }
+//
+//    @Login
+//    @GetMapping("userInfo")
+//    @ApiOperation(value = "获取用户信息", response = UserEntity.class)
+//    public R userInfo(@ApiIgnore @LoginUser UserEntity user) {
+//        return R.ok().put("user", user);
+//    }
 
     @Login
     @GetMapping("userId")
