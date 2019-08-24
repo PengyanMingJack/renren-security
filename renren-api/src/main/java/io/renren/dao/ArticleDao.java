@@ -2,7 +2,11 @@ package io.renren.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import io.renren.entity.ArticleEntity;
+import io.renren.entity.UserArticleEntity;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * 文章管理
@@ -13,5 +17,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface ArticleDao extends BaseMapper<ArticleEntity> {
+
+    List<UserArticleEntity> getListUserArticle();
 
 }

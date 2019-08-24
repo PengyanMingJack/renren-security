@@ -15,5 +15,24 @@
         <result property="status" column="status"/>
     </resultMap>
 
+    <resultMap type="io.renren.entity.UserArticleEntity" id="userArticleMap">
+        <result property="username" column="username"/>
+        <result property="avatar_url" column="avatarUrl"/>
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="content" column="content"/>
+        <result property="createTime" column="create_time"/>
+        <result property="image" column="image"/>
+        <result property="lnglat" column="lnglat"/>
+        <result property="location" column="location"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+    <select id="getListUserArticle" resultMap="userArticleMap">
+        SELECT a.username,a.avatar_url,b.*
+        FROM tb_user a LEFT JOIN tb_article b ON b.user_id=a.user_id
+        WHERE status=0
+    </select>
+
 
 </mapper>

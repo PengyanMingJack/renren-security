@@ -4,6 +4,7 @@ import io.renren.common.utils.PageUtils;
 import io.renren.common.utils.R;
 import io.renren.common.validator.ValidatorUtils;
 import io.renren.entity.ArticleEntity;
+import io.renren.entity.UserArticleEntity;
 import io.renren.entity.UserEntity;
 import io.renren.form.ArticleFrom;
 import io.renren.service.ArticleService;
@@ -15,6 +16,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 
@@ -37,9 +39,10 @@ public class ArticleController {
      */
     @GetMapping("list")
     @ApiOperation(value = "获取列表")
-    public R list(@RequestParam Map<String, Object> params) {
-        PageUtils page = articleService.queryPage(params);
-        return R.ok().put("page", page);
+    public R list() {
+        List<UserArticleEntity> listUserArticle = articleService.getListUserArticle();
+
+        return R.ok().put("list", listUserArticle);
     }
 
     /**
