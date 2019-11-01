@@ -6,7 +6,6 @@ import io.renren.entity.UserArticleEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * 文章管理
@@ -20,4 +19,5 @@ public interface ArticleDao extends BaseMapper<ArticleEntity> {
 
     List<UserArticleEntity> getListUserArticle();
 
+    List<UserArticleEntity> getListByUserId(Integer userId);
 }

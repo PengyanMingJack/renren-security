@@ -1,5 +1,4 @@
 package io.renren.entity;
-
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

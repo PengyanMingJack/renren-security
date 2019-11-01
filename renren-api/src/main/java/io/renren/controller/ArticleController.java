@@ -1,23 +1,18 @@
 package io.renren.controller;
 
-import io.renren.common.utils.PageUtils;
 import io.renren.common.utils.R;
-import io.renren.common.validator.ValidatorUtils;
 import io.renren.entity.ArticleEntity;
 import io.renren.entity.UserArticleEntity;
-import io.renren.entity.UserEntity;
 import io.renren.form.ArticleFrom;
 import io.renren.service.ArticleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -69,16 +64,20 @@ public class ArticleController {
         articleService.save(article);
         return R.ok();
     }
-
+    @GetMapping("listByUserId")
+    @ApiOperation( "获取个人文章列表userId")
+    public R listByUserId(@RequestParam("userId") Integer userId) {
+        List<UserArticleEntity> listUserArticle = articleService.getListArticleByUserId(userId);
+        return R.ok().put("list", listUserArticle);
+    }
 
     /**
      * 删除
      */
     @GetMapping("delete")
     @ApiOperation("删除")
-    public R delete(@RequestBody Integer[] ids) {
-        articleService.removeByIds(Arrays.asList(ids));
-
+    public R delete(@RequestParam ("id")Integer id) {
+        articleService.removeById(id);
         return R.ok();
     }
 

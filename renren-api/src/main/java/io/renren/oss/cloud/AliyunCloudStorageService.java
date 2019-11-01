@@ -35,7 +35,7 @@ public class AliyunCloudStorageService extends CloudStorageService {
     private OSSClient client;
 
 
-    public AliyunCloudStorageService(){
+    public AliyunCloudStorageService() {
         //初始化
         init();
     }
@@ -47,7 +47,7 @@ public class AliyunCloudStorageService extends CloudStorageService {
     }
 
     @Override
-    public  String upload(byte[] data, String path) {
+    public String upload(byte[] data, String path) {
         return upload(new ByteArrayInputStream(data), path);
     }
 

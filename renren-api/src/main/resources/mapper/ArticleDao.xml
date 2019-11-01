@@ -3,7 +3,7 @@
 
 <mapper namespace="io.renren.dao.ArticleDao">
 
-	<!-- 可根据自己的需求，是否要使用 -->
+    <!-- 可根据自己的需求，是否要使用 -->
     <resultMap type="io.renren.entity.ArticleEntity" id="articleMap">
         <result property="id" column="id"/>
         <result property="userId" column="user_id"/>
@@ -34,5 +34,9 @@
         WHERE status=0
     </select>
 
-
+    <select id="getListByUserId" resultMap="userArticleMap">
+        SELECT a.username,a.avatar_url,b.*
+        FROM tb_user a LEFT JOIN tb_article b ON b.user_id=a.user_id
+        WHERE b.user_id= #{value}
+    </select>
 </mapper>

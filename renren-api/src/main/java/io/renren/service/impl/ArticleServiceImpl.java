@@ -24,6 +24,13 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleDao, ArticleEntity> i
     }
 
     @Override
+    public List<UserArticleEntity> getListArticleByUserId(Integer userId) {
+
+        return baseMapper.getListByUserId(userId);
+    }
+
+
+    @Override
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<ArticleEntity> page;
         page = this.page(

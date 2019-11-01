@@ -18,6 +18,8 @@ import java.util.Map;
 public interface ArticleService extends IService<ArticleEntity> {
     List<UserArticleEntity> getListUserArticle();
 
+    List<UserArticleEntity> getListArticleByUserId(Integer userId);
+
     PageUtils queryPage(Map<String, Object> params);
 }
 
