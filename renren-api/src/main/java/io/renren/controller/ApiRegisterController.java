@@ -39,11 +39,8 @@ public class ApiRegisterController {
     @PostMapping("register")
     @ApiOperation("注册")
     public R register(@RequestBody RegisterForm form) {
-
         //表单校验
         ValidatorUtils.validateEntity(form);
-        UserEntity userEntity = userService.queryByMobile(form.getMobile());
-        if (userEntity != null) return R.error("该手机号已被注册!");
         UserEntity user = new UserEntity();
         user.setMobile(form.getMobile());
         user.setSex(form.getSex());
@@ -51,7 +48,10 @@ public class ApiRegisterController {
         user.setAvatarUrl(form.getAvatarUrl());
         user.setPassword(DigestUtils.sha256Hex(form.getPassword()));
         user.setCreateTime(new Date());
-        userService.save(user);
-        return R.ok();
+        boolean result = userService.register(user);
+        if(!result){
+            return R.error("注册失败");
+        }
+        return R.ok("注册成功");
     }
 }

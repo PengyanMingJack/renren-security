@@ -62,4 +62,13 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
         return map;
     }
 
+    @Override
+    public boolean register(UserEntity user) {
+        UserEntity userEntity = baseMapper.selectOne(new QueryWrapper<UserEntity>().lambda().eq(UserEntity::getMobile, user.getMobile()));
+        if (userEntity != null) {
+            throw new RRException("手机号码已注册");
+        }
+        return baseMapper.insert(user) > 0;
+    }
+
 }

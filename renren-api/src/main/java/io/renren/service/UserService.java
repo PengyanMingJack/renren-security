@@ -31,4 +31,6 @@ public interface UserService extends IService<UserEntity> {
      * @return 返回登录信息
      */
     Map<String, Object> login(LoginForm form);
+
+    boolean register(UserEntity user);
 }
