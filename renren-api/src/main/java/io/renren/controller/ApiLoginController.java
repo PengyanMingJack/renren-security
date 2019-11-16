@@ -30,7 +30,7 @@ import java.util.Map;
  * @author Mark sunlightcs@gmail.com
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/zyf/api")
 @Api(tags = "登录接口")
 public class ApiLoginController {
     @Autowired

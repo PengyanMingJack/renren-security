@@ -10,7 +10,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +22,7 @@ import java.util.List;
  * @date 2019-08-11 18:06:56
  */
 @RestController
-@RequestMapping("/article")
+@RequestMapping("/zyf/article")
 @Api(tags="文章")
 public class ArticleController {
     @Autowired

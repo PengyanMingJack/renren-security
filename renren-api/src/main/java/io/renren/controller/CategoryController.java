@@ -19,7 +19,7 @@ import java.util.List;
  * @date 2019-08-15 22:01:11
  */
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/zyf/category")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;

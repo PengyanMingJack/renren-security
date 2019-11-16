@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2019-08-11 16:26:02
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/zyf/api")
 public class SysAppVersionController {
     @Autowired
     private SysAppVersionService sysAppVersionService;

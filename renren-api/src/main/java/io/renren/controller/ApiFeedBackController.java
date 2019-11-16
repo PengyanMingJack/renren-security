@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/zyf/api")
 @Api(tags = "意见反馈")
 public class ApiFeedBackController {
 
