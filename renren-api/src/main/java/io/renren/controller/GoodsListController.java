@@ -21,7 +21,7 @@ import java.util.Map;
  * @date 2019-08-15 22:01:11
  */
 @RestController
-@RequestMapping("/goodslist")
+@RequestMapping("/zyf/goodslist")
 public class GoodsListController {
     @Autowired
     private GoodsListService goodsListService;
